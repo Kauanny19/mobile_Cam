@@ -17,19 +17,24 @@ export const createEvento = async (form, imageUri) => {
   if (imageUri) {
     const filename = imageUri.split("/").pop();
     const match = /\.(\w+)$/.exec(filename);
-    //[.extensão, extensão] ou seja [".png", "png"]
+    //[.extensão,extensão] ou seja [".png","png"]
     const type = match ? `image/${match[1]}` : `image`;
 
     data.append("imagem", {
       uri: imageUri,
       name: filename,
-      type: type,
+      type: type
     });
   }
 
-  return api.post("/evento", data, {
-    headers: {
-      "Content-Type": "multipart/form-data",
+  return api.post("/evento", data,{
+    headers:{
+        "Content-Type" : "multipart/form-data",
     },
   });
+
+};
+
+export const getEventos = async () => {
+  return api.get("/evento"); // já retorna todos os eventos
 };

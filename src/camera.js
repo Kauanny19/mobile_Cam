@@ -38,17 +38,16 @@ export default function Cam() {
 
       //Simular um formulário
       const form = {
-        nome: "Evento teste",
-        descricao: "Evento teste Image Mobile",
-        data_hora: "2025-09-03 09:00:00",
-        local: "Franca",
+        nome:"Evento Testee",
+        descricao:"Evento teste Image Mobile",
+        data_hora:"2025-09-03 09:00:00",
+        local:"Frnca",
         fk_id_organizador:1
       }
-
       try{
-        const response = await createEvento(form, data.uri);
-        console.log("Evento criado", response.data)
-      } catch(error){
+        const response = await createEvento(form,data.uri)
+        console.log("Evento Criado", response.data)
+      }catch (error){
         console.log("Error", error.response.data.error)
       }
 
